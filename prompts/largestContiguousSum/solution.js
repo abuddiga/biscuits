@@ -11,16 +11,17 @@
 /////////////////////////////////////////////////////////////
 
 var largestContiguousSum = function (array) {
-  // keep track of largest sum possible at each index, return sum at final index
-  var sums = [];
+  // keep track of largest sum possible at each index, update max
   var max = -Infinity;
+  var prevSum = 0;
+  var currSum;
 
-  for (var i = 0; i < array.length; i++) {
-    var prevSum = sums[i-1] || 0;
-    sums[i] = Math.max(prevSum + array[i], array[i]);
-    max = Math.max(max, sums[i]);
-  }
-  
+  array.forEach(function(value) {
+    currSum = Math.max(prevSum + value, value);
+    max = Math.max(max, currSum);
+    prevSum = currSum;
+  })
+
   return max;
 };
 

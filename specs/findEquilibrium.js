@@ -1,4 +1,4 @@
-var findEquilibriumIndex = require('../prompts/findEquilibrium/prompt');
+var findEquilibriumIndex = require('../prompts/findEquilibrium/solution.js');
 var expect = require('chai').expect;
 
 describe('Find Equilibrium Index', function (done) {
